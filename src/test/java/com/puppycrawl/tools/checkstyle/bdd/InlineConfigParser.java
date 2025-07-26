@@ -454,6 +454,8 @@ public final class InlineConfigParser {
                 "com.puppycrawl.tools.checkstyle.checks.metrics.CyclomaticComplexityCheck");
         MODULE_MAPPINGS.put("EmptyLineSeparator",
                 "com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheck");
+        MODULE_MAPPINGS.put("LocalVariableName",
+                "com.puppycrawl.tools.checkstyle.checks.naming.LocalVariableNameCheck");
     }
 
     /** Stop instances being created. **/
@@ -619,7 +621,7 @@ public final class InlineConfigParser {
         return lines.stream()
                 .skip(1)
                 .takeWhile(line -> !line.startsWith("*/"))
-                .collect(Collectors.toUnmodifiableList());
+                .toList();
     }
 
     private static void handleXmlConfig(TestInputConfiguration.Builder testInputConfigBuilder,
@@ -996,7 +998,7 @@ public final class InlineConfigParser {
                     }, HashMap::putAll);
         final List<String> missingProperties = defaultProperties.keySet().stream()
                 .filter(propertyName -> !actualProperties.containsKey(propertyName))
-                .collect(Collectors.toUnmodifiableList());
+                .toList();
 
         validateProperties(matchedProperties, missingProperties);
     }

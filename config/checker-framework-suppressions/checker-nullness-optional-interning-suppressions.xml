@@ -5442,7 +5442,7 @@
     <fileName>src/main/java/com/puppycrawl/tools/checkstyle/filters/XpathFilterElement.java</fileName>
     <specifier>type.arguments.not.inferred</specifier>
     <message>Could not infer type arguments for Stream.collect</message>
-    <lineContent>.collect(Collectors.toUnmodifiableList());</lineContent>
+    <lineContent>.toList();</lineContent>
     <details>
       unsatisfiable constraint: @Initialized @PolyNull AbstractNode &lt;: @Initialized @NonNull AbstractNode
       use of T from Collectors.toUnmodifiableList() = @Initialized @NonNull AbstractNode
@@ -6559,7 +6559,7 @@
     <fileName>src/main/java/com/puppycrawl/tools/checkstyle/utils/UnmodifiableCollectionUtil.java</fileName>
     <specifier>type.arguments.not.inferred</specifier>
     <message>Could not infer type arguments for Stream.collect</message>
-    <lineContent>.collect(Collectors.toUnmodifiableList());</lineContent>
+    <lineContent>.toList();</lineContent>
     <details>
       unsatisfiable constraint: T extends @Initialized @PolyNull Object &lt;: T extends @Initialized @Nullable Object
       use of T from Collectors.toUnmodifiableList() = T extends @Initialized @Nullable Object
